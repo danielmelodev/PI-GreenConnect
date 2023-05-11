@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-body">
+    <h2>Lista de Relatos</h2>
+    <hr>
+    <a href="/usuarios/relatos/add"><button class="btn btn-success">Nova relato</button></a>
+  </div>
+</div>
+
+{{#each relatos}}
+  <div class="card mt-4">
+    <div class="card-body ">
+      <h4 style="text-align: center;">{{categoria.nome}}</h4>
+      <p>Título: {{titulo}}</p>
+      <img src="/uploads/{{image}}" alt="..."  height="150" width="150">
+      <p>Setor: {{setor}}</p>
+      <p>Descrição: {{descricao}}</p>
+      <p>Data: {{data}}</p>
+      <a href="/usuarios/relatos/edit/{{_id}}"><button class="btn btn-success">Editar</button></a>
+      <a href="/usuarios/relatos/deletar/{{_id}}"><button class="btn btn-danger">Excluir</button></a>
+    </div>
+  </div>
+{{else}}
+  <h4 class="mt-3">Nenhum relato aberto!</h4>
+{{/each}}
+<br>

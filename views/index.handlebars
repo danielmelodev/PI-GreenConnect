@@ -1,0 +1,26 @@
+<div class="p-5 text-center bg-light">
+    <h1 class="mb-0">Bem-vindos ao</h1>
+    <img src="/img/87.png" alt="Logo" width="80" height="80" class="d-inline-block align-text-center">
+    <h2 ><span style="color:#FFD700 ;">New</span> Reports</h2>
+    <p>Seu app de Relatos</p>
+    <a class="btn btn-primary mt-3" href="/usuarios/nossoapp" role="button">Saiba Mais</a>
+</div>
+
+<hr>
+<h5>Últimos relatos: </h5>
+
+{{#each relatos}}
+  <div class="card mt-4">
+    <div class="card-body ">
+      <h3>{{titulo}}</h3>
+      <p>{{descricao}}</p>
+      <a href="/relatos/{{_id}}"><button class="btn btn-success">Leia Mais</button></a>
+      <hr>
+      <small>Categoria: {{categoria.nome}}</small><br>
+      <small>Data: {{data}}</small>
+    </div>
+  </div>
+{{else}}
+  <p>Nenhum relato!</p>
+{{/each}}
+<br>

@@ -1,0 +1,17 @@
+<h1 style="text-align: center;">{{categoria.nome}}</h1>
+{{#each relatos}}
+  <div class="card mt-4">
+    <div class="card-body ">
+      <h3>{{titulo}}</h3>
+      <img src="/uploads/{{image}}" alt="..."  height="150" width="150">
+      <p>{{descricao}}</p>
+      <a href="/relatos/{{_id}}"><button class="btn btn-success">Leia Mais</button></a>
+      <hr>
+      <small>Categoria: {{categoria.nome}}</small><br>
+      <small>Data: {{data}}</small>
+    </div>
+  </div>
+{{else}} 
+  <p>Nenhum relato!</p>
+{{/each}}
+<br>
