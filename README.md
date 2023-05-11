@@ -1,6 +1,6 @@
 ## Green Connect
 
-<h1 align="center"> <img src="https://github.com/Samuel-Sena/Green-Connect/blob/main/assets/img/GreenConnect.png" width="650px"/>  </h1>
+<h1 align="center"> <img src="https://github.com/Samuel-Sena/Green-Connect/blob/main/assets/img/GreenConnect.png" width="200px"/>  </h1>
  <p>  Esse projeto foi realizado para o PI</p>	 
 
 
