@@ -9,3 +9,5 @@ npm install
 ~~~
 npm run start
 ~~~
+
+### Dessa forma você estará conectado com green
