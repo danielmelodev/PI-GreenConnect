@@ -4,15 +4,17 @@
  <p>  Esse projeto foi realizado para o PI</p>	 
 
 
- <h2> O desafio: </h2>	
- <p>  A empresa BisaWeb deseja implementar a novidade do Open Banking ao seu sistema de gestão financaeira para startups, o MonetaWeb. </p>
+ <h2> Proposito: </h2>	
+ <p>  O Green Connect é o site da Green Life, empresa especializada em interligar comerciantes e agricultores àos consumidores finais. </p>
 
-### Link do site [GreenConnect](https://samuel-sena.github.io/Monetaweb/) !!
+### Link do site [GreenConnect]([https://samuel-sena.github.io/Monetaweb/](https://samuel-sena.github.io/Green-Connect/)) !!
 
  <h3> O que foi usado 🛠 </h3>
  <ul>
   <li> [JavaScript] (https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) </li>	
   <li> [Bootstrap] (https://getbootstrap.com) </li>
+  <li> [NodeJs] (https://getbootstrap.com) </li>
+  <li> [MongoDB] (https://getbootstrap.com) </li>
  <li> [HTML] (https://developer.mozilla.org/pt-BR/docs/Web/HTML) </li>
  <li> [CSS] (https://developer.mozilla.org/pt-BR/docs/Web/CSS) </li>
  </ul>
