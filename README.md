@@ -7,7 +7,7 @@
  <h2> Proposito: </h2>	
  <p>  O Green Connect é o site da Green Life, empresa especializada em interligar comerciantes e agricultores àos consumidores finais. </p>
 
-### Link do site [GreenConnect]([https://samuel-sena.github.io/Monetaweb/])
+### Link do site [GreenConnect](https://samuel-sena.github.io/Green-Connect/)
 
  <h3> O que foi usado 🛠 </h3>
  <ul>
