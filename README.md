@@ -1,9 +1,11 @@
 ## Green Connect
 
-## Comandos para rodar o projeto na sua máquina local
-ˋˋˋ
+## Comandos para rodar o projeto na sua máquina local:
+### Primeiro passo:
+~~~
 npm install
- ˋˋˋ
-ˋˋˋ
+~~~
+### Segundo passo:
+~~~
 npm run start
- ˋˋˋ
+~~~
