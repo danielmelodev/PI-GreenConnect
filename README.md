@@ -1,4 +1,4 @@
-# PI-GreenConnect
+## Green Connect
 
 ## Comandos para rodar o projeto na sua máquina local
 ˋˋˋ
