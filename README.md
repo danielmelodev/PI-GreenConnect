@@ -23,12 +23,12 @@
 
 
  ## Instalação do sistema
-´´´
+<p>
 Em seu computador, abra um terminal e digite: 
 git clone https://github.com/WendelF03/MonetaWeb.git
-Acesse a pasta criada após o comando
+<br>Acesse a pasta criada após o comando
 Abra o arquivo index.html
-´´´ 
+</p>
 
 
 ## Comandos para rodar o projeto na sua máquina local:
@@ -41,4 +41,4 @@ npm install
 npm run start
 ~~~
 
-### Dessa forma você estará conectado com green
+### Dessa forma você estará conectado com Green Connect !
