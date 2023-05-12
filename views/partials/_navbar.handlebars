@@ -1,35 +1,35 @@
 <nav class="navbar navbar-expand-lg bg-light" >
-  <div class="container-fluid" style="background:	#F8F8FF">
+  <div class="container-fluid" style="background:	#008000">
     
-  <a class="navbar-brand" href="/" style="font-weight: bold; color: #FFD700; font-size: 25px; text-align: center; margin: 0 auto" >
-      <img src="img/87.png" alt="Logo" width="70" height="70" class="d-inline-block align-text-center">New <span style="color: #000;">Reports</span></a>
+  <a class="navbar-brand" href="/" style="font-weight: bold; color: #F8F8FF; font-size: 25px; text-align: center; margin: 0 auto" >
+      <img src="img/GreenConnect.png" alt="Logo" width="70" height="70" class="d-inline-block align-text-center">Green <span style="color: #000;">Connect</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="color: #000;">
       <span class="navbar-toggler-icon"></span> 
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="color:#fff">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link active" aria-current="page" href="/" style="color:#fff">Home</a>
         </li>
-        <li class="nav-item">
+        {{!-- <li class="nav-item">
           <a class="nav-link" href="/categorias">Categorias</a>
-        </li>
+        </li> --}}
         <li class="nav-item">
-          <a class="nav-link" href="/usuarios/lojas">Lojas</a>
+          <a class="nav-link" href="/usuarios/lojas" style="color:#fff">Lojas</a>
         </li>
         {{#if user}}
           <li class="nav-item">
-            <a class="nav-link" href="/usuarios/relatos">Abrir Relatos</a>
+            <a class="nav-link" href="/usuarios/relatos" style="color:#fff">Abrir Relatos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/usuarios/logout">Sair</a>
+            <a class="nav-link" href="/usuarios/logout" style="color:#fff">Sair</a>
           </li>
         {{else}}
           <li class="nav-item">
-            <a class="nav-link" href="/usuarios/registro">Cadastro</a>
+            <a class="nav-link" href="/usuarios/registro" style="color:#fff">Cadastro</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/usuarios/login">Login</a>
+            <a class="nav-link" href="/usuarios/login" style="color:#fff">Login</a>
           </li>
         {{/if}}
       </ul>
