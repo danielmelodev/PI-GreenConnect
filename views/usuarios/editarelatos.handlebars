@@ -1,82 +1,29 @@
-<div class="callout large primary">
-  <div class="text-center">
-    <h1>Our Blog</h1>
-    <h2 class="subheader">Such a Simple Blog Layout</h2>
+<div class="card">
+  <div class="card-body">
+    <h4>Editar Relato: </h4>
+    <hr>
+    <form action="/usuarios/relatos/edit" method="POST">
+      <input type="hidden" value="{{relatos._id}}" name="id">
+      <label for="titulo">Titulo: </label>
+      <input type="text" name="titulo"class="form-control" value="{{relatos.titulo}}" required>
+      <label for="setor">Setor: </label>
+      <input type="text" name="setor" class="form-control" value="{{relatos.setor}}" required>
+      <label for="descricao">Descrição:</label>
+      <textarea name="descricao" class="form-control">{{relatos.descricao}}</textarea>
+      <label for="categoria">Categoria do relato: </label>
+      <select name="categoria" class="form-select" required>
+        {{#each categorias}}
+        <option value="{{_id}}">{{nome}}</option>
+        {{else}}
+        <option value="0" >Nenhuma categoria encontrada</option>
+        {{/each}}
+      </select>
+      <label for="image">Upload Image: </label>
+      <input type="file" name="image" class="form-control">
+      <img src="/uploads/{{relatos.image}}" alt="..." class="my-3" height="150" width="150">
+      <input type="hidden" name="old_image" value="{{relatos.image}}">
+      <br>
+      <button type="submit" class="btn btn-success mt-4">Editar relato</button>
+    </form>
   </div>
 </div>
-
-<article class="grid-container">
-  <div class="grid-x align-center">
-    <div class="cell medium-8">
-      <div class="blog-post">
-        <h3>Awesome blog post title <small>3/6/2016</small></h3>
-        <img class="thumbnail" src="https://placehold.it/850x350">
-        <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.
-          Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio
-          ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget
-          luctus.</p>
-        <div class="callout">
-          <ul class="menu simple">
-            <li><a href="#">Author: Mike Mikers</a></li>
-            <li><a href="#">Comments: 3</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-x align-center">
-      <div class="cell medium-8">
-        <div class="blog-post">
-          <h3>Awesome blog post title <small>3/6/2016</small></h3>
-          <img class="thumbnail" src="https://placehold.it/850x350">
-          <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.
-            Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget
-            odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo,
-            eget luctus.</p>
-          <div class="callout">
-            <ul class="menu simple">
-              <li><a href="#">Author: Mike Mikers</a></li>
-              <li><a href="#">Comments: 3</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="grid-x align-center">
-      <div class="cell medium-8">
-        <div class="blog-post">
-          <h3>Awesome blog post title <small>3/6/2016</small></h3>
-          <img class="thumbnail" src="https://placehold.it/850x350">
-          <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.
-            Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget
-            odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo,
-            eget luctus.</p>
-          <div class="callout">
-            <ul class="menu simple">
-              <li><a href="#">Author: Mike Mikers</a></li>
-              <li><a href="#">Comments: 3</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="grid-x align-center">
-      <div class="cell medium-8">
-        <div class="blog-post">
-          <h3>Awesome blog post title <small>3/6/2016</small></h3>
-          <img class="thumbnail" src="https://placehold.it/850x350">
-          <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.
-            Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget
-            odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo,
-            eget luctus.</p>
-          <div class="callout">
-            <ul class="menu simple">
-              <li><a href="#">Author: Mike Mikers</a></li>
-              <li><a href="#">Comments: 3</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>

@@ -113,5 +113,5 @@ require('dotenv').config();
   app.use('/uploads', express.static('uploads'))
 
 //Outros
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8090;
 app.listen(PORT, () => console.log(`Server is running in port ${PORT}`));
