@@ -238,4 +238,7 @@ router.get('/nossoapp',(req,res)=>{
 router.get('/lojas',(req,res)=>{
   res.render('usuarios/lojas') 
 })
+router.get('/blog',(req,res)=>{
+  res.render('usuarios/blog') 
+})
 module.exports = router
