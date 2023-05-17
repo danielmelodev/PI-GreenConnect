@@ -137,7 +137,7 @@ router.get("/logout", (req,res,next)=>{
   })
 })
 router.get('/blogs', (req,res) =>{
-  Blog.find().lean().populate('categoria').sort({data: 'desc'}).then((blogs)=>{
+  Blog.find().lean().then((blogs)=>{
     res.render('usuarios/blogs', {blogs: blogs})
   }).catch((error)=>{
     req.flash('error_msg', 'Houve um erro ao listar os relatos')
