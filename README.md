@@ -1,6 +1,6 @@
 ## Green Connect
 
-<h1 align="center"> <img src="https://github.com/Samuel-Sena/Green-Connect/blob/main/assets/img/GreenConnect.png" width="200px"/>  </h1>
+<h1 align="center"> <img src="https://github.com/Samuel-Sena/Green-Connect/blob/main/Captura%20de%20tela%202023-05-17%20163007.png" width="600px"/>  </h1>
  <p>  Esse projeto foi realizado para o PI</p>	 
 
 
@@ -25,7 +25,7 @@
  ## Instalação do sistema
 <p>
 Em seu computador, abra um terminal e digite: 
-git clone https://github.com/WendelF03/MonetaWeb.git
+git clone https://github.com/danielmelodev/PI-GreenConnect.git
 <br>Acesse a pasta criada após o comando
 Abra o arquivo index.html
 </p>
