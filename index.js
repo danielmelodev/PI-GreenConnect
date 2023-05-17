@@ -7,8 +7,8 @@ const path = require('path')
 const mongoose = require('mongoose')
 const session = require('express-session')
 const flash = require('connect-flash')
-require('./models/Relatos')
-const Relatos = mongoose.model('relatos')
+require('./models/Blogs')
+const Blog = mongoose.model('blogs')
 require('./models/Categoria')
 const Categoria = mongoose.model('categorias')
 const usuarios = require('./routes/usuarios')
@@ -55,17 +55,17 @@ require('dotenv').config();
     app.use(express.static(path.join(__dirname, 'public')))
 //Rotas
   app.get('/', (req, res)=>{
-    Relatos.find().lean().populate('categoria').sort({data: 'desc'}).then((relatos)=>{
-      res.render('index', {relatos: relatos})
+    Blog.find().lean().populate('categoria').sort({data: 'desc'}).then((blogs)=>{
+      res.render('index', {blogs: blogs})
     }).catch((error)=>{
       req.flash('error_msg', 'Houve um erro interno!')
       res.redirect('/404')
     })
   })
-  app.get('/relatos/:id', (req,res)=>{
-    Relatos.findOne({_id: req.params.id}).lean().then((relatos)=>{
+  app.get('/blogs/:id', (req,res)=>{
+    Blog.findOne({_id: req.params.id}).lean().then((blogs)=>{
       if(relatos){
-        res.render('relatos/index', {relatos: relatos})
+        res.render('blogs/index', {blogs: blogs})
       }else{
         req.flash('error_msg', 'Essa postagem não existe!')
         res.redirect('/')

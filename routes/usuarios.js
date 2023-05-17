@@ -5,7 +5,9 @@ const Usuario = mongoose.model('usuarios')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 require('../models/Relatos')
+require('../models/Blogs')
 const Relato = mongoose.model('relatos')
+const Blog = mongoose.model('blogs')
 require('../models/Categoria')
 const multer = require('multer')
 const path = require('path')
@@ -134,52 +136,51 @@ router.get("/logout", (req,res,next)=>{
   res.redirect("/")
   })
 })
-router.get('/relatos', (req,res) =>{
-  Relato.find().lean().populate('categoria').sort({data: 'desc'}).then((relatos)=>{
-    res.render('usuarios/relatos', {relatos: relatos})
+router.get('/blogs', (req,res) =>{
+  Blog.find().lean().populate('categoria').sort({data: 'desc'}).then((blogs)=>{
+    res.render('usuarios/blogs', {blogs: blogs})
   }).catch((error)=>{
     req.flash('error_msg', 'Houve um erro ao listar os relatos')
     res.redirect('/usuarios')
   })
 })
 
-router.get("/relatos/add", (req, res) => {
+router.get("/blogs/add", (req, res) => {
   Categoria.find().lean().then((categorias) => {
-    res.render("usuarios/addrelatos", {categorias: categorias})
+    res.render("usuarios/addblogs", {categorias: categorias})
   }).catch((err) => {
      req.flash("error.msg", "Houve um erro ao carregar o formulário!")
      res.redirect("/usuarios")
   })
 });
-router.post('/relatos/nova', upload.single('image'),(req,res)=> {
+router.post('/blogs/novo', upload.single('image'),(req,res)=> {
   console.log(req.file)
-    const novoRelato = {
-      titulo : req.body.titulo,
-      setor : req.body.setor,
-      descricao : req.body.descricao,
-      categoria : req.body.categoria,
+    const novoBlog = {
+      title : req.body.title,
+      name : req.body.name,
+      text : req.body.text,
       image: req.file.filename
     }
   
-    new Relato(novoRelato).save().then(()=>{
-      req.flash('success_msg', 'Relato criado com sucesso!')
-      res.redirect('/usuarios/relatos')
+    new Blog(novoBlog).save().then(()=>{
+      req.flash('success_msg', 'Blog criado com sucesso!')
+      res.redirect('/usuarios/blogs')
     }).catch((error)=>{
       console.log(error)
-      req.flash('error_msg', 'Houve um erro ao salvar o relato tente novamente!')
+      req.flash('error_msg', 'Houve um erro ao salvar o blog tente novamente!')
       res.redirect("/")
     })
 })
 
-router.get('/relatos/edit/:id', (req,res)=>{
+router.get('/blogs/edit/:id', (req,res)=>{
   
-  Relato.findOne({_id: req.params.id}).lean().then((relatos)=>{
+  Blog.findOne({_id: req.params.id}).lean().then((relatos)=>{
     Categoria.find().lean().then((categorias)=>{
-      res.render('usuarios/editarelatos', {categorias: categorias, relatos: relatos})
+      res.render('usuarios/editablogs')
     }).catch((error)=>{
       console.log(error)
       req.flash('error_msg', 'Houve um erro ao listar as categorias!')
-      res.redirect('/usuarios/relatos')
+      res.redirect('/usuarios/blogs')
     })
   }).catch((error)=> {
     req.flash('error_msg', 'Houve um erro ao carregar o formulário de edição!')
@@ -187,7 +188,7 @@ router.get('/relatos/edit/:id', (req,res)=>{
   
 })
 
-router.post('/relatos/edit',  upload.single('image'),(req,res)=>{
+router.post('/blogs/edit',  upload.single('image'),(req,res)=>{
   let id = req.body.id
   var new_image = ''
 
@@ -201,34 +202,33 @@ router.post('/relatos/edit',  upload.single('image'),(req,res)=>{
   }else{
     new_image = req.body.old_image
   }
-  Relato.findOne({_id: id}).then((relato)=>{
-    relato.titulo = req.body.titulo
-    relato.setor = req.body.setor
-    relato.descricao = req.body.descricao
-    relato.categoria = req.body.categoria
-    relato.image = new_image
+  Blog.findOne({_id: id}).then((blog)=>{
+    blog.titulo = req.body.titulo
+    blog.name = req.body.name
+    blog.texto = req.body.texto
+    blog.image = new_image
 
-    relato.save().then(()=>{
+    blog.save().then(()=>{
       req.flash('success_msg', 'Relato atualizado com sucesso!')
-      res.redirect('/usuarios/relatos')
+      res.redirect('/usuarios/blog')
     }).catch((error)=>{
       req.flash('error_msg', 'Erro do sistema')
-      res.redirect('/usuarios/relatos')
+      res.redirect('/usuarios/blog')
     })
   }).catch((error) =>{
     console.log(error)
     req.flash('error_msg', 'Houve um erro ao salvar a edição')
-    res.redirect('/usuarios/relatos')
+    res.redirect('/usuarios/blogs')
   })
 })
 
-router.get('/relatos/deletar/:id', upload.single('image'),(req,res)=>{
-  Relato.remove({_id: req.params.id}).then(()=>{
-    req.flash("success_msg", 'Relato deletado com sucesso!')
-    res.redirect('/usuarios/relatos')
+router.get('/blogs/deletar/:id', upload.single('image'),(req,res)=>{
+  Blog.remove({_id: req.params.id}).then(()=>{
+    req.flash("success_msg", 'Blog deletado com sucesso!')
+    res.redirect('/usuarios/blogs')
   }).catch((error)=>{
     req.flash('error_msg', 'Houve um erro ao tentar deletar!')
-    res.redirect('/usuarios/postagens')
+    res.redirect('/usuarios/blog')
   })
 })
 

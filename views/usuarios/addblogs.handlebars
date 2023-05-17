@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-body">
+    <h4>Novo Relato: </h4>
+    <hr>
+    <form action="/usuarios/blogs/novo" method="POST" enctype="multipart/form-data">
+      <label for="titulo">Titulo do blog: </label>
+      <input type="text" name="title"class="form-control" required>
+      <label for="name">Nome completo: </label>
+      <input type="text" name="name" class="form-control" required>
+      <label for="text">Escreva seu conteúdo:</label>
+      <textarea name="text" class="form-control" style="height: 200px;"></textarea>
+      
+      <label for="image">Escolha uma foto: </label>
+      <input type="file" name="image" class="form-control"  required>
+      <button type="submit" class="btn btn-success mt-4">Abrir relato</button>
+    </form>
+  </div>
+</div>
