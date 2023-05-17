@@ -55,16 +55,17 @@ require('dotenv').config();
     app.use(express.static(path.join(__dirname, 'public')))
 //Rotas
   app.get('/', (req, res)=>{
-    Blog.find().lean().populate('categoria').sort({data: 'desc'}).then((blogs)=>{
+    Blog.find().lean().then((blogs)=>{
       res.render('index', {blogs: blogs})
     }).catch((error)=>{
+      console.log(error)
       req.flash('error_msg', 'Houve um erro interno!')
       res.redirect('/404')
     })
   })
   app.get('/blogs/:id', (req,res)=>{
     Blog.findOne({_id: req.params.id}).lean().then((blogs)=>{
-      if(relatos){
+      if(blogs){
         res.render('blogs/index', {blogs: blogs})
       }else{
         req.flash('error_msg', 'Essa postagem não existe!')
