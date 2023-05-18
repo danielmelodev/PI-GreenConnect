@@ -1,22 +1,21 @@
 <div class="card">
   <div class="card-body">
-    <h2>Lista de Relatos</h2>
+    <h2>Blog - Green Connect</h2>
     <hr>
-    <a href="/usuarios/blogs/add"><button class="btn btn-success">Nova relato</button></a>
+    <a href="/usuarios/blogs/add"><button class="btn btn-success">Novo Artigo</button></a>
   </div>
 </div>
 
-{{#each relatos}}
+{{#each blogs}}
   <div class="card mt-4">
     <div class="card-body ">
-      <h4 style="text-align: center;">{{categoria.nome}}</h4>
-      <p>Título: {{titulo}}</p>
-      <img src="/uploads/{{image}}" alt="..."  height="150" width="150">
-      <p>Setor: {{setor}}</p>
-      <p>Descrição: {{descricao}}</p>
+      <p>Título: {{title}}</p>
+      <img src="/uploads/{{image}}" alt="..."  height="350" width="850">
+      <p>Nome do Autor: {{name}}</p>
+      <p>Conteúdo do Artigo: {{text}}</p>
       <p>Data: {{data}}</p>
-      <a href="/usuarios/relatos/edit/{{_id}}"><button class="btn btn-success">Editar</button></a>
-      <a href="/usuarios/relatos/deletar/{{_id}}"><button class="btn btn-danger">Excluir</button></a>
+      <a href="/usuarios/blogs/edit/{{_id}}"><button class="btn btn-success">Editar</button></a>
+      <a href="/usuarios/blogs/deletar/{{_id}}"><button class="btn btn-danger">Excluir</button></a>
     </div>
   </div>
 {{else}}
