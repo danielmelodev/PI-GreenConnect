@@ -136,9 +136,18 @@ router.get("/logout", (req,res,next)=>{
   res.redirect("/")
   })
 })
+//Adicionar a rota para pegar os dados
 router.get('/blogs', (req,res) =>{
   Blog.find().lean().then((blogs)=>{
     res.render('usuarios/blogs', {blogs: blogs})
+  }).catch((error)=>{
+    req.flash('error_msg', 'Houve um erro ao listar os relatos')
+    res.redirect('/usuarios')
+  })
+})
+router.get('/blog', (req,res) =>{
+  Blog.find().lean().then((blogs)=>{
+    res.render('usuarios/blog', {blogs: blogs})
   }).catch((error)=>{
     req.flash('error_msg', 'Houve um erro ao listar os relatos')
     res.redirect('/usuarios')
@@ -165,6 +174,7 @@ router.post('/blogs/novo', upload.single('image'),(req,res)=> {
     new Blog(novoBlog).save().then(()=>{
       req.flash('success_msg', 'Blog criado com sucesso!')
       res.redirect('/usuarios/blogs')
+      res.redirect('/usuarios/blog')
     }).catch((error)=>{
       console.log(error)
       req.flash('error_msg', 'Houve um erro ao salvar o blog tente novamente!')
@@ -238,7 +248,7 @@ router.get('/nossoapp',(req,res)=>{
 router.get('/lojas',(req,res)=>{
   res.render('usuarios/lojas') 
 })
-router.get('/blog',(req,res)=>{
-  res.render('usuarios/blog') 
-})
+// router.get('/blog',(req,res)=>{
+//   res.render('usuarios/blog') 
+// })
 module.exports = router
