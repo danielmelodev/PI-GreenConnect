@@ -149,7 +149,7 @@ router.get('/blog', (req,res) =>{
   Blog.find().lean().then((blogs)=>{
     res.render('usuarios/blog', {blogs: blogs})
   }).catch((error)=>{
-    req.flash('error_msg', 'Houve um erro ao listar os relatos')
+    req.flash('error_msg', 'Houve um erro ao listar os Artigos')
     res.redirect('/usuarios')
   })
 })
@@ -174,7 +174,6 @@ router.post('/blogs/novo', upload.single('image'),(req,res)=> {
     new Blog(novoBlog).save().then(()=>{
       req.flash('success_msg', 'Blog criado com sucesso!')
       res.redirect('/usuarios/blogs')
-      res.redirect('/usuarios/blog')
     }).catch((error)=>{
       console.log(error)
       req.flash('error_msg', 'Houve um erro ao salvar o blog tente novamente!')
@@ -184,18 +183,13 @@ router.post('/blogs/novo', upload.single('image'),(req,res)=> {
 
 router.get('/blogs/edit/:id', (req,res)=>{
   
-  Blog.findOne({_id: req.params.id}).lean().then((relatos)=>{
-    Categoria.find().lean().then((categorias)=>{
+  Blog.findOne({_id: req.params.id}).lean().then(()=>{
       res.render('usuarios/editablogs')
-    }).catch((error)=>{
-      console.log(error)
-      req.flash('error_msg', 'Houve um erro ao listar as categorias!')
-      res.redirect('/usuarios/blogs')
-    })
   }).catch((error)=> {
+    console.log(error)
+    res.redirect('/usuarios/blogs')
     req.flash('error_msg', 'Houve um erro ao carregar o formulário de edição!')
   })
-  
 })
 
 router.post('/blogs/edit',  upload.single('image'),(req,res)=>{
@@ -205,7 +199,7 @@ router.post('/blogs/edit',  upload.single('image'),(req,res)=>{
   if(req.file){
     new_image = req.file.filename;
     try{
-      fs.unlinkSync('./uploads/' + req.body.old_image)
+      fs.unlinkSync('uploads/'+ req.body.old_image)
     }catch(err){
       console.log(err)
     }
@@ -213,17 +207,17 @@ router.post('/blogs/edit',  upload.single('image'),(req,res)=>{
     new_image = req.body.old_image
   }
   Blog.findOne({_id: id}).then((blog)=>{
-    blog.titulo = req.body.titulo
+    blog.title = req.body.title
     blog.name = req.body.name
-    blog.texto = req.body.texto
+    blog.text = req.body.text
     blog.image = new_image
 
     blog.save().then(()=>{
-      req.flash('success_msg', 'Relato atualizado com sucesso!')
-      res.redirect('/usuarios/blog')
+      req.flash('success_msg', 'Artigo atualizado com sucesso!')
+      res.redirect('/usuarios/blogs')
     }).catch((error)=>{
       req.flash('error_msg', 'Erro do sistema')
-      res.redirect('/usuarios/blog')
+      res.redirect('/usuarios/blogs')
     })
   }).catch((error) =>{
     console.log(error)
@@ -234,7 +228,7 @@ router.post('/blogs/edit',  upload.single('image'),(req,res)=>{
 
 router.get('/blogs/deletar/:id', upload.single('image'),(req,res)=>{
   Blog.remove({_id: req.params.id}).then(()=>{
-    req.flash("success_msg", 'Blog deletado com sucesso!')
+    req.flash("success_msg", 'Artigo deletado com sucesso!')
     res.redirect('/usuarios/blogs')
   }).catch((error)=>{
     req.flash('error_msg', 'Houve um erro ao tentar deletar!')
