@@ -6,15 +6,19 @@ const Parceiros = new Schema({
     type: String,
     required: true 
   },
-  name: {
+  corporatename: {
     type: String,
     required: true
   },
-  title: {
+  redesocial: {
     type: String,
     required: true
   },
-  text: {
+  cnpj:{
+    type: String,
+    required: true
+  },
+  describe: {
     type: String,
     required: true
   },

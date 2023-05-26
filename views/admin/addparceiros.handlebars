@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-body">
+    <h4>Novo Parceiro: </h4>
+    <hr>
+    <form action="/usuarios/parceiros/novo" method="POST" enctype="multipart/form-data">
+      <label for="corporatename">Nome da Empresa: </label>
+      <input type="text" name="corporatename"class="form-control" required>
+      <label for="redesocial">Rede Social: </label>
+      <input type="text" name="redesocial" class="form-control" required>
+      <label for="cnpj">CNPJ da Empresa: </label>
+      <input type="describe" name="cnpj" class="form-control" required>
+      <label for="describe">Escreva sobre a Empresa:</label>
+      <textarea name="describe" class="form-control" style="height: 200px;"></textarea>
+      
+      <label for="image">Escolha uma foto: </label>
+      <input type="file" name="image" class="form-control">
+      <button type="submit" class="btn btn-success mt-4">Cadastrar</button>
+    </form>
+  </div>
+</div>

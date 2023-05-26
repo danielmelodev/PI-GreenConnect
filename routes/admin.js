@@ -2,9 +2,9 @@ const router = require('express').Router()
 
 //Pegando o mongoose e adicionando seu models.
 const mongoose = require('mongoose')
-require('../models/Categoria')
+require('../models/Parceiros')
 //Pegando a referência do model
-const Categoria = mongoose.model('categorias')
+const Parceiros = mongoose.model('parceiros')
 
 
 const {eAdmin} = require('../helpers/eAdmin')
@@ -13,22 +13,22 @@ router.get('/', (req,res) => {
   res.render('admin/index')
 })
 
-router.get('/reports',eAdmin, (req,res)=>{
-  res.send('Página de relatos')
+router.get('/parceiros',eAdmin, (req,res)=>{
+  res.send('Página de Parceiros')
 } )
 
-router.get('/categorias',eAdmin, (req,res)=> {
-  Categoria.find().sort({date: 'desc'}).lean().then((categorias)=>{
-    res.render('admin/categorias', {categorias: categorias})
+router.get('/parceiros',eAdmin, (req,res)=> {
+  Parceiros.find().sort({date: 'desc'}).lean().then((parceiros)=>{
+    res.render('admin/parceiros', {parceiros: parceiros})
   }).catch((error)=>{
     req.flash('error_msg', 'Houve um erro ao listar as categorias')
     res.redirect('/admin')
   })
 })
-router.get('/categoria/add',eAdmin, (req,res) => {
-  res.render('admin/addcategorias')
+router.get('/parceiros/add',eAdmin, (req,res) => {
+  res.render('admin/addparceiros')
 })
-router.post('/categorias/nova',eAdmin, (req,res)=>{
+router.post('/parceiros/novo',eAdmin, (req,res)=>{
 
   var erros = []
   if(!req.body.nome || req.body.nome == undefined || req.body.nome == null){
