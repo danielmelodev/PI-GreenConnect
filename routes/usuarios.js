@@ -138,15 +138,15 @@ router.get("/logout", (req,res,next)=>{
 })
 //Adicionar a rota para pegar os dados
 router.get('/blogs', (req,res) =>{
-  Blog.find().lean().then((blogs)=>{
+  Blog.find().lean().sort({data: 'desc'}).then((blogs)=>{
     res.render('usuarios/blogs', {blogs: blogs})
   }).catch((error)=>{
-    req.flash('error_msg', 'Houve um erro ao listar os relatos')
+    req.flash('error_msg', 'Houve um erro ao listar os Artigos')
     res.redirect('/usuarios')
   })
 })
 router.get('/blog', (req,res) =>{
-  Blog.find().lean().then((blogs)=>{
+  Blog.find().lean().sort({data: 'desc'}).then((blogs)=>{
     res.render('usuarios/blog', {blogs: blogs})
   }).catch((error)=>{
     req.flash('error_msg', 'Houve um erro ao listar os Artigos')
@@ -182,9 +182,9 @@ router.post('/blogs/novo', upload.single('image'),(req,res)=> {
 })
 
 router.get('/blogs/edit/:id', (req,res)=>{
-  
-  Blog.findOne({_id: req.params.id}).lean().then(()=>{
-      res.render('usuarios/editablogs')
+
+  Blog.findOne({_id: req.params.id}).lean().then((blogs)=>{
+      res.render('usuarios/editablogs', {blogs:blogs})
   }).catch((error)=> {
     console.log(error)
     res.redirect('/usuarios/blogs')
@@ -242,7 +242,13 @@ router.get('/nossoapp',(req,res)=>{
 router.get('/lojas',(req,res)=>{
   res.render('usuarios/lojas') 
 })
-// router.get('/blog',(req,res)=>{
-//   res.render('usuarios/blog') 
-// })
+
+router.get('/artigo/:id', (req,res) =>{
+  Blog.findOne({_id: req.params.id}).lean().then((blogs)=>{
+    res.render('usuarios/artigo', {blogs: blogs})
+  }).catch((error)=>{
+    req.flash('error_msg', 'Houve um erro ao listar os Artigos')
+    res.redirect('/usuarios')
+  })
+})
 module.exports = router

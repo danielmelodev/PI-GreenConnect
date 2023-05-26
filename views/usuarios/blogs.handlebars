@@ -7,18 +7,20 @@
 </div>
 
 {{#each blogs}}
-  <div class="card mt-4">
-    <div class="card-body ">
-      <p>Título: {{title}}</p>
-      <img src="/uploads/{{image}}" alt="..."  height="350" width="850">
-      <p>Nome do Autor: {{name}}</p>
-      <p>Conteúdo do Artigo: {{text}}</p>
-      <p>Data: {{data}}</p>
-      <a href="/usuarios/blogs/edit/{{_id}}"><button class="btn btn-success">Editar</button></a>
-      <a href="/usuarios/blogs/deletar/{{_id}}"><button class="btn btn-danger">Excluir</button></a>
-    </div>
+<div class="card mt-4">
+  <div class="card-body ">
+    <p>Título: {{title}}</p>
+    <img src="/uploads/{{image}}" alt="..." height="350" width="850">
+    <p>Nome do Autor: {{name}}</p>
+    <p>Conteúdo do Artigo: {{text}}</p>
+    <p>Data: {{data}}</p>
+    <a href="/usuarios/blogs/edit/{{_id}}"><button class="btn btn-success">Editar</button></a>
+    <a href="/usuarios/blogs/deletar/{{_id}}" onclick="return confirm('Tem certeza que deseja excluir este artigo?');">
+      <button class="btn btn-danger">Excluir</button>
+    </a>
   </div>
+</div>
 {{else}}
-  <h4 class="mt-3">Nenhum relato aberto!</h4>
+<h4 class="mt-3">Nenhum relato aberto!</h4>
 {{/each}}
 <br>

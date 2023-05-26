@@ -4,15 +4,22 @@
     <h3 class="subheader" style="color:#E6E6E6; font-size: 16px">"Descubra o poder da alimentação orgânica: transforme sua saúde, nutrição e bem-estar!"</h3>
   </div>
 </div>
-
+<style>
+  .texto-limitado {
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    overflow: hidden; /* Esconde o conteúdo que excede o espaço disponível */
+    text-overflow: ellipsis; /* Adiciona reticências (...) para indicar que o texto foi cortado */
+    max-height: 200px;
+  }
+</style>
 {{#each blogs}}
-  <div class="card mt-4">
+    <div class="card mt-4 ">
     <div class="card-body ">
       <h2 style="text-align: center; font-weight: bold">{{title}}</h2>
-      <img src="/uploads/{{image}}" alt="..."  height="350" width="850">
-      <p style="font-weight:bold">Nome do Autor: <span>{{name}}</span></p>
-      <p style="font-weight:bold">Conteúdo do Artigo: <span style="color:#795548">{{text}}</span></p>
-      <p style="font-weight:bold">Data: <span>{{data}}</span></p>
+      <p style="text-align: left" class="texto-limitado">{{text}}</p>
+      <a href="/usuarios/artigo/{{_id}}"><button class="btn btn-success">Leia Mais</button></a>
+      <hr>
+     <small>Data: {{data}}</small>
     </div>
   </div>
 {{else}}

@@ -3,17 +3,17 @@
     <h4>Alterar Artigo: </h4>
     <hr>
     <form action="/usuarios/blogs/edit" method="POST" enctype="multipart/form-data">
-      <input type="hidden" value="{{blog._id}}" name="id">
+      <input type="hidden" value="{{blogs._id}}" name="id">
       <label for="title">Titulo: </label>
-      <input type="text" name="title"class="form-control" value="{{blog.title}}" required>
+      <input type="text" name="title"class="form-control" value="{{blogs.title}}" required>
       <label for="name">Nome: </label>
-      <input type="text" name="name" class="form-control" value="{{blog.name}}" required>
+      <input type="text" name="name" class="form-control" value="{{blogs.name}}" required>
       <label for="text">Conteúdo:</label>
-      <textarea name="text" class="form-control">{{blog.text}}</textarea>
+      <textarea name="text" class="form-control" style="width: 850px; height:200px">{{blogs.text}}</textarea>
       <label for="image">Upload Image: </label>
       <input type="file" name="image" class="form-control">
-      <img src="/uploads/{{blog.image}}" alt="..." class="my-3" height="150" width="150">
-      <input type="hidden" name="old_image" value="{{blog.image}}">
+      <img src="/uploads/{{blogs.image}}" alt="..." class="my-3" height="150" width="150">
+      <input type="hidden" name="old_image" value="{{blogs.image}}">
       <br>
       <button type="submit" class="btn btn-success mt-4">Editar Artigo</button>
     </form>
