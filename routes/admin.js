@@ -47,7 +47,7 @@ router.get('/', (req,res) => {
   res.render('admin/index')
 })
 
-router.get('/addparceiros', (req,res)=> {
+router.get('/parceiros', (req,res)=> {
   Parceiros.find().sort({date: 'desc'}).lean().then((parceiros)=>{
     res.render('admin/parceiros', {parceiros: parceiros})
   }).catch((error)=>{
@@ -79,8 +79,8 @@ router.post('/parceiros/novo', upload.single('image'),(req,res)=> {
 })
 
 router.get('/parceiros', (req,res) =>{
-  Parceiros.find().lean().sort({data: 'desc'}).then((parceiros)=>{
-    res.render('admin/parceiros', {parceiros: parceiros})
+  Parceiros.find().lean().then((parceiros)=>{
+    res.render('/parceiros', {parceiros: parceiros})
   }).catch((error)=>{
     req.flash('error_msg', 'Houve um erro ao listar os Artigos')
     res.redirect('/usuarios')

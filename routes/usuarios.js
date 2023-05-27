@@ -240,7 +240,12 @@ router.get('/nossoapp',(req,res)=>{
   res.render('usuarios/nossoapp')
 })
 router.get('/lojas',(req,res)=>{
-  res.render('usuarios/lojas') 
+  Parceiros.find().lean().sort({data: 'desc'}).then((parceiros)=>{
+    res.render('usuarios/parceiros', {parceiros: parceiros})
+  }).catch((error)=>{
+    req.flash('error_msg', 'Houve um erro ao listar os Artigos')
+    res.redirect('/usuarios')
+  })
 })
 
 router.get('/artigo/:id', (req,res) =>{
