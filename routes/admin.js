@@ -80,7 +80,7 @@ router.post('/parceiros/novo', upload.single('image'),(req,res)=> {
 
 router.get('/parceiros', (req,res) =>{
   Parceiros.find().lean().then((parceiros)=>{
-    res.render('/parceiros', {parceiros: parceiros})
+    res.render('admin/parceiros', {parceiros: parceiros})
   }).catch((error)=>{
     req.flash('error_msg', 'Houve um erro ao listar os Artigos')
     res.redirect('/usuarios')
