@@ -44,14 +44,17 @@
   <div class="cell">
     <div class="parceiro">
       <h2 style="text-align: center; font-weight: bold">{{corporatename}}</h2>
-      <img class="thumbnail" src="/uploads/{{image}}" alt="..." height="350" width="850">
-      <p style="text-align: left; margin-top:10px" class="texto-limitado">{{describe}}</p>
+      <div class="image">
+        <img class="thumbnail" src="/uploads/{{image}}" alt="..." height="350" width="450">
+      </div>
+
+      <p style="text-align: center; margin-top:10px" class="texto-limitado">{{describe}}</p>
     </div>
   </div>
-<hr>
-{{/each}}
+  <hr>
+  {{/each}}
 
-  
+
 
   <div class="grid-x cell">
     <div class="callout small-12 primary">
@@ -59,3 +62,16 @@
     </div>
   </div>
 </article>
+
+<style>
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ajuste a altura conforme necessário */
+  }
+</style>
+
+
+<img src="caminho/para/sua/imagem.jpg" alt="Descrição da imagem">
+</div>
