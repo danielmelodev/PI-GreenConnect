@@ -3,14 +3,16 @@
     <h2 style="text-align: center; font-weight: bold">{{blogs.title}}</h2>
     <hr>
     <img src="/uploads/{{blogs.image}}" alt="..." height="350" width="850">
-    
+
     <p style="margin-top:10px">{{blogs.text}}</p>
-    
+
     <hr>
-    <small ><span style="font-weight:bold">Nome do Autor:</span> {{blogs.name}}</small>
+    <small><span style="font-weight:bold">Nome do Autor:</span> {{blogs.name}}</small>
     <br>
     <small><span style="font-weight:bold">Data:</span> {{blogs.data}}</small>
     <hr>
+    <script defer src="https://cdn.commento.io/js/commento.js"></script>
+    <div id="commento">Comentário</div>
     <a href="/usuarios/blog" style="align-itens: center;"><button class="btn btn-success">Voltar</button></a>
   </div>
 </div>
