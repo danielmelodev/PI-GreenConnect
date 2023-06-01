@@ -1,19 +1,55 @@
-{{#each erros}}
-  <div class="alert alert-danger">{{texto}}</div>
-{{else}}
+<a href=".../"><button class="btn btn-success">Voltar</button></a>
+<hr>
 
-{{/each}}
-<h3>Editar categoria: </h3>
 <div class="card">
   <div class="card-body">
-    <form action="/admin/categorias/edit" method="post">
-    <input type="hidden" value="{{categoria._id}}">
-    <label for="nome">Nome: </label>
-    <input type="text" id="nome" name="nome" placeholder="Nome da categoria" class="form-control" value="{{categoria.nome}}">
-    <label for="slug">Slug:</label>
-    <input type="text" id="slug" name="slug" placeholder="Slug da categoria" class="form-control" value="{{categoria.slug}}">
-    <br>
-    <button type="submit" class="btn btn-success">Editar categoria</button>
+    <h3>Editar categoria: </h3>
+    <form action="/admin/parceiros/edit" method="POST" enctype="multipart/form-data">
+      <input type="hidden" value="{{parceiros._id}}" name="id">
+      <label for="corporatename">Nome da Empresa: </label>
+      <input type="text" name="corporatename" class="form-control" value="{{parceiros.corporatename}}" required>
+      <label for="redesocial">Rede Social: </label>
+      <input type="text" name="redesocial" class="form-control" value="{{parceiros.redesocial}}" required>
+      <label for="cnpj">CNPJ da Empresa: </label>
+      <input type="text" id="cnpjInput" name="cnpj" class="form-control" value="{{parceiros.cnpj}}" required>
+      <label for="describe">Sobre a Empresa:</label>
+      <textarea name="describe" class="form-control" style="height: 200px;">{{parceiros.describe}}</textarea>
+
+      <label for="image">Escolha uma foto: </label>
+      <input type="file" name="image" class="form-control">
+      <img src="/uploads/{{parceiros.image}}" alt="..." class="my-3" height="150" width="150">
+      <br>
+      <button type="submit" class="btn btn-success mt-4">Editar Parceiro</button>
+
     </form>
   </div>
 </div>
+
+<script>
+  const cnpjInput = document.getElementById('cnpjInput');
+
+  cnpjInput.addEventListener('input', formatarCNPJ);
+
+  function formatarCNPJ() {
+    let cnpj = cnpjInput.value;
+
+    // Remove todos os caracteres que não são números
+    cnpj = cnpj.replace(/\D/g, '');
+
+    // Aplica a formatação do CNPJ (##.###.###/####-##
+    if (cnpj.length <= 2) {
+      cnpj = cnpj.replace(/^(\d{0,2})/, '$1');
+    } else if (cnpj.length <= 5) {
+      cnpj = cnpj.replace(/^(\d{0,2})(\d{0,3})/, '$1.$2');
+    } else if (cnpj.length <= 8) {
+      cnpj = cnpj.replace(/^(\d{0,2})(\d{0,3})(\d{0,3})/, '$1.$2.$3');
+    } else if (cnpj.length <= 12) {
+      cnpj = cnpj.replace(/^(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})/, '$1.$2.$3/$4');
+    } else {
+      cnpj = cnpj.replace(/^(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2}).*/, '$1.$2.$3/$4-$5');
+    }
+
+    cnpjInput.value = cnpj;
+  }
+
+</script>

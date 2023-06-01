@@ -1,14 +1,20 @@
 <a href="./"><button class="btn btn-success">Voltar</button></a> 
-
+<hr>
 {{#each parceiros}}
 <div class="card mt-4 ">
   <div class="card-body ">
     <h2 style="text-align: center; font-weight: bold">{{corporatename}}</h2>
     <img src="/uploads/{{image}}" alt="..." height="350" width="850">
     <p style="text-align: left; margin-top:10px" class="texto-limitado">{{describe}}</p>
-    <a href="/usuarios/artigo/{{_id}}"><button class="btn btn-success">Leia Mais</button></a>
     <hr>
-    <small>Data: {{data}}</small>
+    <small><span style="font-weight: bold;">CNPJ:</span> {{cnpj}}</small>
+    <br>
+    <small><span style="font-weight: bold;">Data:</span> {{data}}</small>
+    <hr>
+    <a href="/admin/parceiros/edit/{{_id}}"><button class="btn btn-success">Editar</button></a>    
+    <a href="/admin/parceiros/deletar/{{_id}}" onclick="return confirm('Tem certeza que deseja excluir este Parceiro?');">
+      <button class="btn btn-danger">Excluir</button>
+    </a>
   </div>
 </div>
 {{else}}

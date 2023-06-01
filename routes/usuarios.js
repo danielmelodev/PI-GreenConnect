@@ -239,6 +239,9 @@ router.get('/blogs/deletar/:id', upload.single('image'),(req,res)=>{
 router.get('/nossoapp',(req,res)=>{
   res.render('usuarios/nossoapp')
 })
+router.get('/contato',(req,res)=>{
+  res.render('usuarios/contato')
+})
 router.get('/lojas',(req,res)=>{
   Parceiros.find().lean().sort({data: 'desc'}).then((parceiros)=>{
     res.render('usuarios/parceiros', {parceiros: parceiros})
@@ -251,6 +254,14 @@ router.get('/lojas',(req,res)=>{
 router.get('/artigo/:id', (req,res) =>{
   Blog.findOne({_id: req.params.id}).lean().then((blogs)=>{
     res.render('usuarios/artigo', {blogs: blogs})
+  }).catch((error)=>{
+    req.flash('error_msg', 'Houve um erro ao listar os Artigos')
+    res.redirect('/usuarios')
+  })
+})
+router.get('/parceiros-sobre/:id', (req,res) =>{
+  Parceiros.findOne({_id: req.params.id}).lean().then((parceiros)=>{
+    res.render('usuarios/parceirosSobre', {parceiros: parceiros})
   }).catch((error)=>{
     req.flash('error_msg', 'Houve um erro ao listar os Artigos')
     res.redirect('/usuarios')

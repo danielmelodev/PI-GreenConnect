@@ -1,3 +1,6 @@
+<a href="../"><button class="btn btn-success">Voltar</button></a>
+<hr>
+
 <div class="card">
   <div class="card-body">
     <h4>Novo Parceiro: </h4>
@@ -8,8 +11,8 @@
       <label for="redesocial">Rede Social: </label>
       <input type="text" name="redesocial" class="form-control" required>
       <label for="cnpj">CNPJ da Empresa: </label>
-      <input type="describe" name="cnpj" class="form-control" required>
-      <label for="describe">Escreva sobre a Empresa:</label>
+      <input type="text" id="cnpjInput"name="cnpj" class="form-control" required>
+      <label for="describe">Sobre a Empresa:</label>
       <textarea name="describe" class="form-control" style="height: 200px;"></textarea>
       
       <label for="image">Escolha uma foto: </label>
@@ -18,3 +21,32 @@
     </form>
   </div>
 </div>
+
+<script>
+ const cnpjInput = document.getElementById('cnpjInput');
+
+cnpjInput.addEventListener('input', formatarCNPJ);
+
+function formatarCNPJ() {
+  let cnpj = cnpjInput.value;
+
+  // Remove todos os caracteres que não são números
+  cnpj = cnpj.replace(/\D/g, '');
+
+  // Aplica a formatação do CNPJ (##.###.###/####-##
+  if (cnpj.length <= 2) {
+    cnpj = cnpj.replace(/^(\d{0,2})/, '$1');
+  } else if (cnpj.length <= 5) {
+    cnpj = cnpj.replace(/^(\d{0,2})(\d{0,3})/, '$1.$2');
+  } else if (cnpj.length <= 8) {
+    cnpj = cnpj.replace(/^(\d{0,2})(\d{0,3})(\d{0,3})/, '$1.$2.$3');
+  } else if (cnpj.length <= 12) {
+    cnpj = cnpj.replace(/^(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})/, '$1.$2.$3/$4');
+  } else {
+    cnpj = cnpj.replace(/^(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2}).*/, '$1.$2.$3/$4-$5');
+  }
+
+  cnpjInput.value = cnpj;
+}
+
+</script>
