@@ -1,37 +1,46 @@
-<div class="card mt-4">
-  <div class="card-body ">
-    <h2 style="text-align: center; font-weight: bold; color:#0FBD20">{{parceiros.corporatename}}</h2>
-    <hr>
+<div class="card mt-4" style="background-color: #F3F7F3;">
+  <div class="card-body">
+    <h2 style="text-align: center; font-weight: bold; color: #42AD42;">{{parceiros.corporatename}}</h2>
     <div class="image">
-      <img  src="/uploads/{{parceiros.image}}" alt="..." height="200" width="200">
+      <img src="/uploads/{{parceiros.image}}" alt="Logo" style="max-height: 200px; max-width: 200px; border-radius: 50%;">
     </div>
-    <hr>
-    <p style="margin-top:10px" > <span style="font-weight:bold; color:#0FBD20">Sobre a empresa:</span><br>{{parceiros.describe}}</p>
-
-    <hr>
-    <p><span style="font-weight:bold; color:#0FBD20">Redes sociais:</span>
-    <ul style="display:flex;justify-content: center;  align-itens: center; list-style: none">
-      <li style="margin-right: 20px"><a href="/" target="_blank"><img src="/img/facebook.png" width="30" height="30" alt="Facebook"></a></li>
-      <li style="margin-right: 20px"><a href="/" target="_blank"><img src="/img/instagram.png" width="30" height="30" alt="Instagram"></a></li>
-      <li style="margin-right: 20px"><a href="/" target="_blank"><img src="/img/whatsapp.png" width="30" height="30" alt="Whatsapp"></a></li>
-    </ul>
-      
+    <p style="margin-top: 10px; text-align: justify; color: #333;">
+      <strong>Sobre a empresa:</strong><br>
+      {{parceiros.describe}}
     </p>
-    <hr>
-
+    <p><strong>Redes sociais:</strong></p>
+    <ul class="social-media-list">
+      <li><a href="/" target="_blank"><img src="/img/facebook.png" width="30" height="30" alt="Facebook"></a></li>
+      <li><a href="/" target="_blank"><img src="/img/instagram.png" width="30" height="30" alt="Instagram"></a></li>
+      <li><a href="/" target="_blank"><img src="/img/whatsapp.png" width="30" height="30" alt="Whatsapp"></a></li>
+    </ul>
     <script defer src="https://cdn.commento.io/js/commento.js"></script>
-    <p> <span style="font-weight:bold; color:#0FBD20">Deixe seu comentário:</span> </p>
+    <p><strong>Deixe seu comentário:</strong></p>
     <div id="commento"></div>
-    <hr>
-    <a href="/usuarios/lojas" style="text-align: center;"><button class="btn btn-success">Voltar</button></a>
+    <a href="/usuarios/lojas" style="text-align: center; display: block; margin-top: 20px;">
+      <button class="btn btn-success" style="background-color: #42AD42; border-color: #42AD42;">Voltar</button>
+    </a>
   </div>
 </div>
+
 <style>
   .image {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Ajuste a altura conforme necessário */
+    margin-bottom: 20px;
   }
-  
+
+  .social-media-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .social-media-list li {
+    margin-right: 20px;
+  }
 </style>

@@ -1,36 +1,5 @@
 
-<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit=""
-  data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;"
-  data-resize="s4vcmt-orbit" id="s4vcmt-orbit" data-e="fsfl79-e" data-events="resize">
-  <ul class="orbit-container" tabindex="0" style="height: 155.25px;">
-    <button class="orbit-previous" tabindex="0"><span class="show-for-sr">Previous Slide</span>◀︎</button>
-    <button class="orbit-next" tabindex="0"><span class="show-for-sr">Next Slide</span>▶︎</button>
-    <li class="orbit-slide" data-slide="0" style="display: none; position: relative; top: 0px;">
-      <img class="orbit-image" src="/img/mato.jpg" alt="Space">
-      <figcaption class="orbit-caption">Não é necessário comer menos, é necessário comer melhor.</figcaption>
-    </li>
-    <li class="orbit-slide is-active" data-slide="1" style="position: relative; top: 0px; display: block;"
-      aria-live="polite">
-      <img class="orbit-image" src="/img/feira.jpg" alt="Space">
-      <figcaption class="orbit-caption">Se a vida te der limões, faça um suco verde.</figcaption>
-    </li>
-    <li class="orbit-slide" data-slide="2" style="position: relative; top: 0px; display: none;">
-      <img class="orbit-image" src="/img/legume.jpg" alt="Space">
-      <figcaption class="orbit-caption">Você escolhe o seu amanhã a cada mordida que você dá hoje.</figcaption>
-    </li>
-    <li class="orbit-slide" data-slide="3" style="position: relative; top: 0px; display: none;">
-      <img class="orbit-image" src="/img/milho.jpg" alt="Space">
-      <figcaption class="orbit-caption">Comer bem para viver melhor!</figcaption>
-    </li>
-  </ul>
-  <nav class="orbit-bullets">
-    <button class="" data-slide="0"><span class="show-for-sr">First slide details.</span></button>
-    <button data-slide="1" class="is-active"><span class="show-for-sr">Second slide details.</span><span
-        class="show-for-sr">Current Slide</span></button>
-    <button data-slide="2" class=""><span class="show-for-sr">Third slide details.</span></button>
-    <button data-slide="3" class=""><span class="show-for-sr">Fourth slide details.</span></button>
-  </nav>
-</div>
+
 
 
 <div class=" mt-4">
@@ -55,9 +24,7 @@
       </div>
 
       <p style="text-align: center; margin-top:10px" class="texto-limitado">{{describe}}</p>
-      <hr>
-      <a href="/usuarios/parceiros-sobre/{{_id}}"><button class="btn btn-success">Saiba Mais</button></a>
-      <hr>
+      <a href="/usuarios/parceiros-sobre/{{_id}}"><button class="btn btn-success">Conheça nosso Parceiro</button></a>
     </div>
   </div>
   <hr>
@@ -73,22 +40,58 @@
 </article>
 
 <style>
-  .image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Ajuste a altura conforme necessário */
-  }
+  .grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
 
-  ;
+.cell {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .texto-limitado {
-    white-space: nowrap;
-    /* Impede que o texto quebre em várias linhas */
-    overflow: hidden;
-    /* Esconde o conteúdo que excede o espaço disponível */
-    text-overflow: ellipsis;
-    /* Adiciona reticências (...) para indicar que o texto foi cortado */
-    max-height: 100px;
-  }
+.parceiro {
+  text-align: center;
+}
+
+.parceiro h2 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.thumbnail {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.texto-limitado {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 10px;
+}
+
+.btn {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #218838;
+}
 </style>

@@ -1,19 +1,67 @@
 <div class="card mt-4">
-  <div class="card-body ">
-    <h2 style="text-align: center; font-weight: bold">{{blogs.title}}</h2>
-    <hr>
-    <img src="/uploads/{{blogs.image}}" alt="..." height="350" width="850">
+  <div class="card-body">
+    <h2 class="text-center" style="font-weight: bold; color: #4D7326;">{{blogs.title}}</h2>
+    <img src="/uploads/{{blogs.image}}" alt="Imagem do artigo" height="350" width="850">
 
-    <p style="margin-top:10px">{{blogs.text}}</p>
-
+    <p style="margin-top: 20px; text-align: justify; color: #333;">{{blogs.text}}</p>
     <hr>
-    <small><span style="font-weight:bold">Nome do Autor:</span> {{blogs.name}}</small>
-    <br>
-    <small><span style="font-weight:bold">Data:</span> {{blogs.data}}</small>
+    <p><span style="font-weight: bold; color: #4D7326;">Nome do Autor:</span> {{blogs.name}}</p>
+    <p><span style="font-weight: bold; color: #4D7326;">Data:</span> {{blogs.data}}</p>
     <hr>
     <script defer src="https://cdn.commento.io/js/commento.js"></script>
-    <h6>Deixe seu comentário: </h6>
+    <h6 style="color: #4D7326;">Deixe seu comentário:</h6>
     <div id="commento"></div>
-    <a href="/usuarios/blog" style="align-itens: center;"><button class="btn btn-success">Voltar</button></a>
+    <div class="text-center">
+      <hr>
+    <a href="/usuarios/blog" class="text-center"><button class="btn btn-success">Voltar</button></a>
+    </div>
   </div>
 </div>
+
+<style>
+  .card {
+    background-color: #F7F3E9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  span {
+    font-weight: bold;
+  }
+
+  h6 {
+    color: #4D7326;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    background-color: #4D7326;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #426D23;
+  }
+  .text-center {
+    text-align: center;
+  }
+</style>
+
+

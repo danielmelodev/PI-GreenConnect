@@ -1,6 +1,14 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
+const { format } = require('date-fns');
+
+// Obtenha a data atual
+const dataAtual = new Date();
+
+// Formate a data no padrão brasileiro
+const dataFormatada = format(dataAtual, 'dd/MM/yyyy');
+
 const Parceiros = new Schema({
   image: {
     type: String,
@@ -25,7 +33,7 @@ const Parceiros = new Schema({
   //a data exata do cadastro
   data:{
     type: Date,
-    default: Date.now()
+    default: dataFormatada
   },
   
 })

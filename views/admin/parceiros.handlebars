@@ -5,6 +5,7 @@
   <div class="card-body ">
     <h2 style="text-align: center; font-weight: bold">{{corporatename}}</h2>
     <img src="/uploads/{{image}}" alt="..." height="350" width="850">
+
     <p style="text-align: left; margin-top:10px" class="texto-limitado">{{describe}}</p>
     <hr>
     <small><span style="font-weight: bold;">CNPJ:</span> {{cnpj}}</small>
@@ -20,3 +21,13 @@
 {{else}}
 <h4 class="mt-3">Nenhum registro feito!</h4>
 {{/each}}
+
+<style>
+  .texto-limitado {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>
